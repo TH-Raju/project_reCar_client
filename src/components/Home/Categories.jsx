@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import electric from '../../img/electric.avif';
-import luxury from '../../img/luxary.avif';
-import microbus from '../../img/microbus.avif';
+import { Link } from 'react-router-dom';
+
 
 const Categories = () => {
     const [categorie, setCategorie] = useState([]);
 
     useEffect(() => {
-        fetch('categoriy.json')
+        fetch('http://localhost:5000/categoriy')
             .then(res => res.json())
             .then(data => setCategorie(data))
     }, [])
@@ -23,7 +22,7 @@ const Categories = () => {
                             <h2 className="card-title">{categoriy.name}</h2>
                             <p>{categoriy.detail}</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
+                                <Link to={`/categorieDetail/${categoriy._id}`}><button className="btn btn-primary">See Product</button></Link>
                             </div>
                         </div>
                     </div>
