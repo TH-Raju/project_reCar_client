@@ -1,0 +1,107 @@
+[
+    {
+        "_id": 1,
+        "name": "Electric Car",
+        "img": "https://images.unsplash.com/photo-1594535182308-8ffefbb661e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZWxlY3RyaWMlMjBjYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        "detail": "You can find Used Electric Car. with Document and few days used",
+        "product": [
+            {
+                "img": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxlY3RyaWMlMjBjYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+                "name": "mg ev Electric Car",
+                "sellerName": "Raju",
+                "location": "Feni",
+                "originalPrice": 100,
+                "resalePrice": 70,
+                "yearOfUse": 2
+            },
+            {
+                "img": "https://images.unsplash.com/photo-1607197109166-3ab4ee4b468f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZWxlY3RyaWMlMjBjYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+                "name": "Ford Electric Car",
+                "sellerName": "Tofajjol",
+                "location": "Dhaka",
+                "originalPrice": 600,
+                "resalePrice": 300,
+                "yearOfUse": 4
+            },
+            {
+                "img": "https://images.unsplash.com/photo-1567409378873-888d6fa7debc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZWxlY3RyaWMlMjBjYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+                "name": "Tesla Electric Car",
+                "sellerName": "Mukta",
+                "location": "Chittagong",
+                "originalPrice": 800,
+                "resalePrice": 500,
+                "yearOfUse": 3
+            }
+        ]
+    },
+    {
+        "_id": 2,
+        "name": "Luxury Car",
+        "img": "https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bHV4dXJ5JTIwY2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "detail": "You can find Used Luxury Car. with Document and few days used",
+        "product": [
+            {
+                "img": "https://images.unsplash.com/photo-1614377284368-a6d4f911edc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGx1eHVyeSUyMGNhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                "name": "BMW Luxury Car",
+                "sellerName": "Raj",
+                "location": "Finland",
+                "originalPrice": 1000,
+                "resalePrice": 500,
+                "yearOfUse": 6
+            },
+            {
+                "img": "https://images.unsplash.com/photo-1618418721668-0d1f72aa4bab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGx1eHVyeSUyMGNhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                "name": "Ferari Luxury Car",
+                "sellerName": "Nahar",
+                "location": "Dhaka",
+                "originalPrice": 1200,
+                "resalePrice": 700,
+                "yearOfUse": 5
+            },
+            {
+                "img": "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGx1eHVyeSUyMGNhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                "name": "Audi Luxury Car",
+                "sellerName": "Najmun",
+                "location": "Chittagong",
+                "originalPrice": 1800,
+                "resalePrice": 1500,
+                "yearOfUse": 2
+            }
+        ]
+    },
+    {
+        "_id": 2,
+        "name": "Microbus Car",
+        "img": "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWljcm9idXMlMjBjYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        "detail": "You can find Used Microbus Car. with Document and few days used",
+        "product": [
+            {
+                "img": "https://images.unsplash.com/photo-1463714179529-808685e81a6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWljcm9idXMlMjBjYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+                "name": "Toyota Microbus Car",
+                "sellerName": "Rj Raju",
+                "location": "USA",
+                "originalPrice": 1500,
+                "resalePrice": 500,
+                "yearOfUse": 12
+            },
+            {
+                "img": "https://images.unsplash.com/photo-1465172018141-c4e4fa823289?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWljcm9idXMlMjBjYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+                "name": "APV Microbus Car",
+                "sellerName": "NN Mukta",
+                "location": "UK",
+                "originalPrice": 1200,
+                "resalePrice": 600,
+                "yearOfUse": 6
+            },
+            {
+                "img": "https://images.unsplash.com/photo-1459603677915-a62079ffd002?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1pY3JvYnVzJTIwY2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                "name": "VolksWagen Microbus Car",
+                "sellerName": "Raj",
+                "location": "Chittagong",
+                "originalPrice": 1800,
+                "resalePrice": 900,
+                "yearOfUse": 10
+            }
+        ]
+    }
+]

@@ -18,12 +18,12 @@ const Navbar = () => {
             user?.uid ?
                 <>
                     <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li><button onClick={handleLogOut}>Log Out</button></li>
+                    <li><button className='btn btn-outline btn-sm mt-2 px-2 py-0 rounded-lg' onClick={handleLogOut}>Log Out</button></li>
                 </>
                 :
                 <>
-                    <li><Link to="/login">Log in</Link></li>
-                    <li><Link to="/register">Register</Link></li>
+                    <li><Link to="/login"><button className='btn btn-outline btn-sm mt-2 px-2 py-0 rounded-lg'>Log in</button></Link></li>
+                    <li><Link to="/register"><button className='btn btn-outline btn-sm mt-2 px-2 py-0 rounded-lg'>Register</button></Link></li>
                 </>
 
         }

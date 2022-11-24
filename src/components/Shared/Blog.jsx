@@ -7,7 +7,7 @@ const Blog = () => {
                 <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                     <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
                         <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold ">Our Blog</h2>
-                        <p className="font-light sm:text-xl ">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+                        <p className="font-light sm:text-xl ">Here Are Some Important Question with Answer in Blog Section. Which is related to MERN Stack and some functionality of our site</p>
                     </div>
                     <div className="grid gap-8 lg:grid-cols-2">
                         <article className="p-6  rounded-lg border border-gray-200 shadow-md ">
