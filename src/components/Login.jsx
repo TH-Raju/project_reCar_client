@@ -14,7 +14,7 @@ const Login = () => {
     // const [token] = useToken(loginUserEmail);
     const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
     // if (token) {
@@ -24,7 +24,7 @@ const Login = () => {
     const handleLogin = data => {
         console.log(data);
         setLoginError('');
-        signIn(data.email, data.password)
+        signIn(data.email, data.password, data.role)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -67,6 +67,14 @@ const Login = () => {
                                 minLength: { value: 6, message: 'Password must be 6 characters or longer' }
                             })}
                             className="input input-bordered w-full max-w-xs" />
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label"> <span className="label-text">Role</span></label>
+
+                        <select {...register('role')} className="input input-bordered w-full max-w-xs">
+                            <option value="Buyer">Buyer</option>
+                            <option value="Seller">Seller</option>
+                        </select>
                         <label className="label"> <span className="label-text">Forget Password?</span></label>
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>

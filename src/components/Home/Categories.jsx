@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 
 
 const Categories = () => {
-    const [categorie, setCategorie] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/categoriy')
-            .then(res => res.json())
-            .then(data => setCategorie(data))
-    }, [])
+    const { data: categorie = [] } = useQuery({
+        queryKey: ['categorie'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/categoriy')
+            const data = await res.json();
+            return data
+        }
+    })
 
     return (
         <div className='lg:w-4/5 lg:mx-auto my-16'>

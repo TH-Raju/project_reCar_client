@@ -1,7 +1,9 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import BookModal from './BookModal';
 
 const CategorieDetail = () => {
+    const [categorieDetail, setCategorieDetail] = useState([]);
     const detail = useLoaderData();
     const { name, product } = detail;
 
@@ -20,7 +22,15 @@ const CategorieDetail = () => {
                             <p className="card-title">Original Price: ${categoriy.originalPrice}</p>
                             <p className="card-title">Re-sell Price: ${categoriy.resalePrice}</p>
                             <div className="card-actions justify-end">
-                                <Link to={``}><button className="btn btn-primary">Book Now</button></Link>
+                                <label htmlFor="booking-modal" onClick={() => setCategorieDetail(categoriy)} className="btn btn-primary">Book Now</label>
+
+                                {
+                                    categorieDetail &&
+                                    <BookModal
+                                        categorieDetail={categorieDetail}
+                                    ></BookModal>
+                                }
+
                             </div>
                         </div>
                     </div>
@@ -32,3 +42,4 @@ const CategorieDetail = () => {
 };
 
 export default CategorieDetail;
+
