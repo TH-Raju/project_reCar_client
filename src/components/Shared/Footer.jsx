@@ -6,7 +6,7 @@ const Footer = () => {
             //     background: `url(${footeri})`
             // }}
             className='px-8'>
-            <footer className="footer grid-cols-3 gap-3 lg:w-1/2 mx-auto  ">
+            <footer className="footer lg:w-4/5 lg:mx-auto flex justify-between ">
                 <div>
                     <span className="footer-title">Services</span>
                     <a href="/" className="link link-hover">Branding</a>
