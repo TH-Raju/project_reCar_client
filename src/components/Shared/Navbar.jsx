@@ -30,7 +30,7 @@ const Navbar = () => {
 
     </React.Fragment>
     return (
-        <div>
+        <div className='sticky top-0 z-30'>
             <div className="navbar bg-base-100 flex lg:justify-around">
                 <div className="navbar-start">
                     <div className="dropdown">

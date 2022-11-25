@@ -8,6 +8,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Blog from "../components/Shared/Blog";
 import ErrorPage from "../components/Shared/ErrorPage";
+import Products from "../components/Shared/Products";
 import DashboardLayout from "../layout/DashboardLayout";
 import Main from "../layout/Main";
 import AdminRoute from "../Routes/AdminRoute";
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/products',
+                element: <Products></Products>
             },
             {
                 path: '/categorieDetail/:id',

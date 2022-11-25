@@ -6,7 +6,7 @@ import sell from '../../img/sell.png';
 
 const InfoSection = () => {
     return (
-        <div className='lg:w-4/5 lg:mx-auto h-screen'>
+        <div className='lg:w-4/5 lg:mx-auto my-80'>
             <h2 className='text-center text-3xl font-bold'>About Resale Handing</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:mx-12 my-16'>
                 <div className="card card-side bg-base-100 shadow-xl">
