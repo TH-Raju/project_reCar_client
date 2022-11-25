@@ -4,8 +4,8 @@ import { AuthContext } from '../components/context/AuthProvider';
 
 const BookModal = ({ categorieDetail }) => {
     const { user } = useContext(AuthContext);
-    const { name, sellerName, location, originalPrice, resalePrice, yearOfUse } = categorieDetail;
-    const userNum = '+880 18590 53543'
+    const { name, mobile, sellerName, location, originalPrice, resalePrice, yearOfUse } = categorieDetail;
+    const userNum = '+8801859053543'
 
     const handleBooing = event => {
         event.preventDefault();
@@ -22,7 +22,7 @@ const BookModal = ({ categorieDetail }) => {
             buyerEmail: buyerEmail,
             price: price,
             sellerName: sellerName,
-            userNum: userNum,
+            userNum: mobile,
         }
 
         fetch('http://localhost:5000/bookings', {
@@ -52,7 +52,7 @@ const BookModal = ({ categorieDetail }) => {
                     <h3 className="text-2xl font-bold">{name}</h3>
                     <form onSubmit={handleBooing} className='grid grid-cols-1 gap-4 mt-10'>
                         <input name='sellerName' type="sellerName" disabled value={"Seller Name: " + sellerName} className="input input-bordered w-full font-bold" />
-                        <input name='userNum' type="userNum" disabled value={"Phone Number: " + userNum} className="input input-bordered w-full font-bold" />
+                        <input name='userNum' type="userNum" disabled value={"Phone Number: " + mobile} className="input input-bordered w-full font-bold" />
                         <input type="text" value={"Meeting Location: " + location + " or virtually"} className="input input-bordered w-full " />
                         <input type="text" disabled value={"Original Price: $" + originalPrice} className="input input-bordered w-full " />
                         <input name='price' type="price" disabled value={"$" + resalePrice} className="input input-bordered w-full font-bold" />
