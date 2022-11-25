@@ -10,6 +10,7 @@ import Blog from "../components/Shared/Blog";
 import ErrorPage from "../components/Shared/ErrorPage";
 import DashboardLayout from "../layout/DashboardLayout";
 import Main from "../layout/Main";
+import AdminRoute from "../Routes/AdminRoute";
 import PrivateRoute from "../Routes/PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -54,7 +55,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/alluser',
-                element: <AllUser></AllUser>
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
             },
         ]
     },
