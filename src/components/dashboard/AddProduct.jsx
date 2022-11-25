@@ -1,27 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const imageHostKey = process.env.REACT_APP_imgbb_key;
+    const navigate = useNavigate();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleAddProduct = data => {
-        console.log(data.img[0]);
+        // console.log(data.img[0]);
         const img = data.img[0];
         const formData = new FormData();
         formData.append('img', img);
-        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        console.log(data);
+
+        const url = `https://api.imgbb.com/1/upload${imageHostKey}`
         fetch(url, {
             method: 'POST',
             body: formData
         })
             .then(res => res.json())
             .then(imgData => {
+                // console.log(imgData.data.url)
                 if (imgData.success) {
                     // imgData.data.url
                     const product = {
                         name: data.name,
+                        categorie: data.categorie,
                         location: data.location,
                         mobile: data.mobile,
                         originalPrice: data.originalPrice,
@@ -43,6 +50,7 @@ const AddProduct = () => {
                         .then(res => res.json())
                         .then(result => {
                             console.log(result);
+                            navigate('/')
                         })
                 }
 
@@ -60,9 +68,9 @@ const AddProduct = () => {
 
 
     return (
-        <div className='w-5/6 mx-auto p-7'>
+        <div className='md:w-5/6 mx-auto p-7'>
             <h2 className="text-4xl">Add Product</h2>
-            <form onSubmit={handleSubmit(handleAddProduct)} className="grid grid-cols-1 md:grid-cols-2">
+            <form onSubmit={handleSubmit(handleAddProduct)} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Name</span></label>
                     <input type="text" placeholder='Enter Your Name' {...register("sellerName", {
@@ -83,9 +91,10 @@ const AddProduct = () => {
                         className="input input-bordered w-full max-w-xs">
                         <option selected>Select a Categorie</option>
                         {
-                            categories?.map(categorie => <option
-                                key={categorie._id}
-                            >{categorie.name}</option>)
+                            categories?.map(categorie =>
+                                <option
+                                    key={categorie._id}>
+                                    {categorie.name}</option>)
                         }
                     </select>
                 </div>
@@ -134,8 +143,8 @@ const AddProduct = () => {
                 </div>
 
 
-                <div className='col-span-2 text-center mt-8'>
-                    <input className='btn btn-accent mt-4  w-96 ' value="Add Item" type="submit" />
+                <div className=' text-center mt-8 md:col-span-2'>
+                    <input className='btn btn-accent mt-4  md:w-96' value="Add Item" type="submit" />
                 </div>
             </form>
         </div>
