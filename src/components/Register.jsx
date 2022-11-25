@@ -34,6 +34,7 @@ const Register = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email, data.role);
+
                     })
                     .catch(err => console.log(err));
             })
@@ -68,6 +69,8 @@ const Register = () => {
             })
 
     }
+
+
 
 
 
