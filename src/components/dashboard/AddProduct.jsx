@@ -3,10 +3,50 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddProduct = () => {
-
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
     const { register, handleSubmit, formState: { errors } } = useForm();
+
     const handleAddProduct = data => {
-        console.log(data);
+        console.log(data.img[0]);
+        const img = data.img[0];
+        const formData = new FormData();
+        formData.append('img', img);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                if (imgData.success) {
+                    // imgData.data.url
+                    const product = {
+                        name: data.name,
+                        location: data.location,
+                        mobile: data.mobile,
+                        originalPrice: data.originalPrice,
+                        resalePrice: data.resalePrice,
+                        yearOfUse: data.yearOfUse,
+                        img: imgData.data.url
+                    }
+                    console.log(product)
+                    //save product 
+
+                    fetch('http://localhost:5000/categoriy', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                        })
+                }
+
+            })
     }
     const { data: categories } = useQuery({
         queryKey: ['categoriy'],
@@ -39,11 +79,12 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Select Categorie</span></label>
-                    <select className="input input-bordered w-full max-w-xs">
+                    <select {...register('categorie')}
+                        className="input input-bordered w-full max-w-xs">
                         <option selected>Select a Categorie</option>
                         {
-                            categories?.map((categorie, i) => <option
-                                key={i}
+                            categories?.map(categorie => <option
+                                key={categorie._id}
                             >{categorie.name}</option>)
                         }
                     </select>
