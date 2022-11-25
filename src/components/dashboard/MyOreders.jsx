@@ -6,13 +6,15 @@ const MyOreders = () => {
     const { user } = useContext(AuthContext);
 
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
-    const { data: bookings = [] } = useQuery({
+    const { data: buyings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url);
             const data = await res.json();
             return data;
+
         }
+
     })
 
     return (
@@ -24,29 +26,25 @@ const MyOreders = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Email</th>
+                            <th>Seller Name</th>
+                            <th>Seller Number</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
-                        <tr className="hover">
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Purple</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Red</td>
-                        </tr>
+                        {
+                            buyings?.map((buying, i) => <tr key={buying._id} className="hover">
+                                <th>{i + 1}</th>
+                                <td>{buying.buyerName}</td>
+                                <td>{buying.buying}</td>
+                                <td>{buying.price}</td>
+                                <td>{buying.buyerEmail}</td>
+                                <td>{buying.sellerName}</td>
+                                <td>{buying.userNum}</td>
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>
