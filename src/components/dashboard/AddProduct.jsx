@@ -13,10 +13,10 @@ const AddProduct = () => {
         // console.log(data.img[0]);
         const img = data.img[0];
         const formData = new FormData();
-        formData.append('img', img);
+        formData.append('image', img);
         console.log(data);
 
-        const url = `https://api.imgbb.com/1/upload${imageHostKey}`
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
         fetch(url, {
             method: 'POST',
             body: formData
@@ -25,6 +25,7 @@ const AddProduct = () => {
             .then(imgData => {
                 // console.log(imgData.data.url)
                 if (imgData.success) {
+                    // console.log(imgData.data.url)
                     // imgData.data.url
                     const product = {
                         name: data.name,
@@ -36,11 +37,11 @@ const AddProduct = () => {
                         yearOfUse: data.yearOfUse,
                         img: imgData.data.url
                     }
-                    console.log(product)
+                    // console.log(imgData)
                     //save product 
 
                     fetch('http://localhost:5000/categoriy', {
-                        method: 'POST',
+                        method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
                             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -93,7 +94,9 @@ const AddProduct = () => {
                         {
                             categories?.map(categorie =>
                                 <option
-                                    key={categorie._id}>
+                                    key={categorie._id}
+                                    value={categorie._id}
+                                >
                                     {categorie.name}</option>)
                         }
                     </select>
