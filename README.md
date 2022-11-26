@@ -1,3 +1,43 @@
+# Project Documentation
+
+# Website Name - Tech Tutor 
+
+## personal Website
+
+# Live Preview  []  
+## click on the link to view Live site in your browser.
+
+
+# Website's different features and functionality
+* This is a Car Re-sell Website. Where people can sell their used car. and buy other used car.
+* There are different features for seller and buyer and  admin. 
+* Seller can upload their product on site. and admin can add delete anything.
+* On this website, You can see Your buying product. and contact information of seller
+* Our website is responsive. You can see our product or blog section on the mobile or tab and laptop or desktop. 
+
+
+# Used technologies 
+
+* React
+* React Query
+* React hooks and libraries
+* Node.js
+* Express.js
+* MongoDB
+* Firebase Authentication
+* Firebase Hosting
+* Tailwind CSS
+* daisyUI
+* Vercel
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

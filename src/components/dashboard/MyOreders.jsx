@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthProvider';
 
 const MyOreders = () => {
     const { user } = useContext(AuthContext);
-
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
     const { data: buyings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -21,6 +20,21 @@ const MyOreders = () => {
 
     })
 
+    const handleDelete = buyings => {
+        console.log(buyings)
+        const agree = window.confirm(`Are you sure you want to this Item`)
+        // console.log(agree);
+        if (agree) {
+            fetch(`http://localhost:5000/bookings/${buyings}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+        }
+    }
+
+
+
     return (
         <div>
             <h3 className="text-4xl mb-6">My Orders</h3>
@@ -29,11 +43,12 @@ const MyOreders = () => {
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Product Name</th>
                             <th>Price</th>
-                            <th>Email</th>
-                            <th>Seller Name</th>
+                            <th>Seller Number</th>
+                            <th>Delete Order</th>
                             <th>Seller Number</th>
                         </tr>
                     </thead>
@@ -41,12 +56,19 @@ const MyOreders = () => {
                         {
                             buyings?.map((buying, i) => <tr key={buying._id} className="hover">
                                 <th>{i + 1}</th>
-                                <td>{buying.buyerName}</td>
+                                <th>
+                                    <div className="avatar online">
+                                        <div className="w-14 rounded-full">
+                                            <img src={buying.img} alt='buyer' />
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>{buying.sellerName}</td>
                                 <td>{buying.buying}</td>
                                 <td>{buying.price}</td>
-                                <td>{buying.buyerEmail}</td>
-                                <td>{buying.sellerName}</td>
                                 <td>{buying.userNum}</td>
+                                <td><button onClick={() => handleDelete(buying._id)} className='btn btn-warning btn-sm'>Delete</button></td>
+                                <td><button className='btn btn-success btn-sm'>Pay</button></td>
                             </tr>)
                         }
                     </tbody>

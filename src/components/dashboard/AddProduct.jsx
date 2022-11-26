@@ -89,7 +89,7 @@ const AddProduct = () => {
                     <label className="label"> <span className="label-text">Select Categorie</span></label>
                     <select {...register('categorie')}
                         className="input input-bordered w-full max-w-xs">
-                        <option selected>Select a Categorie</option>
+                        <option defaultValue>Select a Categorie</option>
                         {
                             categories?.map(categorie =>
                                 <option

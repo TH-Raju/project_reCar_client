@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
 import { AuthContext } from '../components/context/AuthProvider';
 
 const BookModal = ({ categorieDetail }) => {
     const { user } = useContext(AuthContext);
-    const { name, mobile, sellerName, location, originalPrice, resalePrice, yearOfUse } = categorieDetail;
-    const userNum = '+8801859053543'
+    const { name, img, mobile, sellerName, location, originalPrice, resalePrice, yearOfUse } = categorieDetail;
+
 
     const handleBooing = event => {
         event.preventDefault();
@@ -18,6 +17,7 @@ const BookModal = ({ categorieDetail }) => {
 
         const booking = {
             buying: name,
+            img: img,
             buyerName: buyerName,
             buyerEmail: buyerEmail,
             price: price,
