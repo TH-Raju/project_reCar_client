@@ -2,12 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
+import Loading from '../Shared/Loading';
 
 const MyOreders = () => {
     const { user } = useContext(AuthContext);
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
-    const { data: buyings = [], refetch } = useQuery({
-        queryKey: ['bookings', user?.email],
+    const { data: buyings = [], isLoading, refetch } = useQuery({
+        queryKey: ['buyings', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
                 headers: {
@@ -37,7 +38,9 @@ const MyOreders = () => {
         }
     }
 
-
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -57,7 +60,7 @@ const MyOreders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {buyings ?
                             buyings?.map((buying, i) => <tr key={buying._id} className="hover">
                                 <th>{i + 1}</th>
                                 <th>
@@ -83,6 +86,7 @@ const MyOreders = () => {
                                     }
                                 </td>
                             </tr>)
+                            : null
                         }
                     </tbody>
                 </table>
