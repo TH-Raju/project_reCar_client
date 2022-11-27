@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
@@ -51,6 +52,7 @@ const AddProduct = () => {
                         .then(res => res.json())
                         .then(result => {
                             console.log(result);
+                            toast.success('Product Added') || alert('Product Added')
                             navigate('/')
                         })
                 }
@@ -70,30 +72,17 @@ const AddProduct = () => {
 
     return (
         <div className='md:w-5/6 mx-auto p-7'>
-            <h2 className="text-4xl">Add Product</h2>
+            <h2 className="text-5xl font-bold mb-10">Add Product</h2>
             <form onSubmit={handleSubmit(handleAddProduct)} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Name</span></label>
-                    <input type="text" placeholder='Enter Your Name' {...register("sellerName", {
-                        required: "Name is Required"
-                    })} className="input input-bordered w-full max-w-xs" />
-                    {errors.sellerName && <p className='text-red-500'>{errors.sellerName.message}</p>}
-                </div>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Product Name</span></label>
-                    <input type="text" placeholder='Enter Product Name' {...register("name", {
-                        required: "Name is Required"
-                    })} className="input input-bordered w-full max-w-xs" />
-                    {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
-                </div>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Select Categorie</span></label>
+                    <label className="label"> <span className="label-text text-xl font-bold">Select Categorie</span></label>
                     <select {...register('categorie')}
                         className="input input-bordered w-full max-w-xs">
                         <option defaultValue>Select a Categorie</option>
                         {
                             categories?.map(categorie =>
-                                <option
+                                <option className='font-bold text-lg'
                                     key={categorie._id}
                                     value={categorie._id}
                                 >
@@ -103,42 +92,57 @@ const AddProduct = () => {
                 </div>
 
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Location</span></label>
+                    <label className="label"> <span className="label-text text-xl font-bold">Name</span></label>
+                    <input type="text" placeholder='Enter Your Name' {...register("sellerName", {
+                        required: "Name is Required"
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.sellerName && <p className='text-red-500'>{errors.sellerName.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text text-xl font-bold">Product Name</span></label>
+                    <input type="text" placeholder='Enter Product Name' {...register("name", {
+                        required: "Name is Required"
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                </div>
+
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text text-xl font-bold">Location</span></label>
                     <input type="text" placeholder='Enter Your Location' {...register("location", {
                         required: "location is Required"
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.location && <p className='text-red-500'>{errors.location.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Original Price</span></label>
+                    <label className="label"> <span className="label-text text-xl font-bold">Original Price</span></label>
                     <input type="text" placeholder='Enter Original Price' {...register("originalPrice", {
                         required: "Price is Required"
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.originalPrice && <p className='text-red-500'>{errors.originalPrice.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Re-sell Price</span></label>
+                    <label className="label"> <span className="label-text text-xl font-bold">Re-sell Price</span></label>
                     <input type="text" placeholder='Enter Re-sell Price' {...register("resalePrice", {
                         required: "Price is Required"
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.resalePrice && <p className='text-red-500'>{errors.resalePrice.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">How many year you use it?</span></label>
+                    <label className="label"> <span className="label-text text-xl font-bold">How many year you use it?</span></label>
                     <input type="text" placeholder='Enter Uses years' {...register("yearOfUse", {
                         required: "year is Required"
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.yearOfUse && <p className='text-red-500'>{errors.yearOfUse.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Mobile</span></label>
+                    <label className="label"> <span className="label-text text-xl font-bold">Mobile</span></label>
                     <input type="text" placeholder='Enter Your Mobile Number' {...register("mobile", {
                         required: "Name is Required"
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.mobile && <p className='text-red-500'>{errors.mobile.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Image</span></label>
+                    <label className="label"> <span className="label-text text-xl font-bold">Upload Product Image</span></label>
                     <input type="file" {...register("img", {
                         required: "Image is Required"
                     })} className="input w-full max-w-xs" />

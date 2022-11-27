@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
+import Loading from '../components/Shared/Loading';
 import BookModal from './BookModal';
 
 const CategorieDetail = () => {
     const [categorieDetail, setCategorieDetail] = useState([]);
     const detail = useLoaderData();
     const { name, product } = detail;
-
+    const navigation = useNavigation();
+    if (navigation.state === 'loading') {
+        return <Loading></Loading>
+    }
 
     return (
         <div className='lg:w-4/5 lg:mx-auto my-16'>

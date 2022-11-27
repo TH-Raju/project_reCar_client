@@ -3,10 +3,12 @@ import CategorieDetail from "../CategorieDetail/CategorieDetail";
 import AddProduct from "../components/dashboard/AddProduct";
 import AllUser from "../components/dashboard/AllUser";
 import MyOreders from "../components/dashboard/MyOreders";
+import Payment from "../components/dashboard/Payment";
 import Home from "../components/Home/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Blog from "../components/Shared/Blog";
+import ErrorDisplay from "../components/Shared/ErrorDisplay";
 import ErrorPage from "../components/Shared/ErrorPage";
 import Products from "../components/Shared/Products";
 import DashboardLayout from "../layout/DashboardLayout";
@@ -53,6 +55,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <ErrorDisplay></ErrorDisplay>,
         children: [
             {
                 path: '/dashboard',
@@ -61,6 +64,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
             },
             {
                 path: '/dashboard/alluser',

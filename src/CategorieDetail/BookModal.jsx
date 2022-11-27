@@ -55,7 +55,7 @@ const BookModal = ({ categorieDetail }) => {
                         <input name='userNum' type="userNum" disabled value={"Phone Number: " + mobile} className="input input-bordered w-full font-bold" />
                         <input type="text" value={"Meeting Location: " + location + " or virtually"} className="input input-bordered w-full " />
                         <input type="text" disabled value={"Original Price: $" + originalPrice} className="input input-bordered w-full " />
-                        <input name='price' type="price" disabled value={"$" + resalePrice} className="input input-bordered w-full font-bold" />
+                        <input name='price' type="number" disabled value={resalePrice} className="input input-bordered w-full font-bold" />
                         <input name='name' type="name" disabled value={user?.displayName} className="input input-bordered w-full font-bold" />
                         <input name='email' type="email" value={user?.email} disabled className="input input-bordered w-full font-bold" />
                         <br />

@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 
 const MyOreders = () => {
     const { user } = useContext(AuthContext);
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
-    const { data: buyings = [] } = useQuery({
+    const { data: buyings = [], refetch } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
@@ -29,7 +30,10 @@ const MyOreders = () => {
                 method: 'DELETE',
             })
                 .then(res => res.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    refetch()
+                    console.log(data)
+                })
         }
     }
 
@@ -49,7 +53,7 @@ const MyOreders = () => {
                             <th>Price</th>
                             <th>Seller Number</th>
                             <th>Delete Order</th>
-                            <th>Seller Number</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,7 +72,16 @@ const MyOreders = () => {
                                 <td>{buying.price}</td>
                                 <td>{buying.userNum}</td>
                                 <td><button onClick={() => handleDelete(buying._id)} className='btn btn-warning btn-sm'>Delete</button></td>
-                                <td><button className='btn btn-success btn-sm'>Pay</button></td>
+                                <td>
+                                    {
+                                        buying.price && !buying.paid &&
+                                        <Link to={`/dashboard/payment/${buying._id}`}><button className='btn btn-success btn-sm'>Pay</button></Link>
+                                    }
+                                    {
+                                        buying.price && buying.paid &&
+                                        <span className='text-success'>paid</span>
+                                    }
+                                </td>
                             </tr>)
                         }
                     </tbody>

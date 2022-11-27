@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 
 
 const Categories = () => {
@@ -11,6 +12,10 @@ const Categories = () => {
             return data
         }
     })
+    const navigation = useNavigation();
+    if (navigation.state === 'loading') {
+        return <Loading></Loading>
+    }
 
     return (
         <div className='lg:w-4/5 lg:mx-auto my-16'>
