@@ -45,7 +45,7 @@ const AllUser = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('Make admin successful');
+                    toast.success('Make admin successful');
                     refetch();
                 }
             })

@@ -11,14 +11,14 @@ const Navbar = () => {
     }
 
     const menuItems = <React.Fragment>
-        <li><Link to="/home">Home</Link></li>
-        <li><Link to="/products">Products</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
+        <li className='font-bold text-lg'><Link to="/home">Home</Link></li>
+        <li className='font-bold text-lg'><Link to="/products">Products</Link></li>
+        <li className='font-bold text-lg'><Link to="/blog">Blog</Link></li>
         {
             user?.uid ?
                 <>
-                    <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li><button className='btn btn-outline btn-sm mt-2 px-2 py-0 rounded-lg' onClick={handleLogOut}>Log Out</button></li>
+                    <li className='font-bold text-lg'><Link to="/dashboard">Dashboard</Link></li>
+                    <li><button className='btn btn-outline btn-sm mt-3 px-2 py-0 rounded-lg' onClick={handleLogOut}>Log Out</button></li>
                 </>
                 :
                 <>
@@ -41,7 +41,7 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl">Resale Handing</Link>
+                    <Link to='/home' className="btn btn-ghost normal-case text-xl font-bold">Resale Handing</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

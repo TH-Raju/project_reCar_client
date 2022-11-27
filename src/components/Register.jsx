@@ -27,7 +27,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast('User Created Successfully.')
+                toast.success('User Created Successfully.')
                 const userInfo = {
                     displayName: data.name
                 }
@@ -49,6 +49,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                saveUser(user?.displayName, user?.email)
             })
             .catch(error => console.error(error))
     }
@@ -65,6 +66,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 setCreatedUserEmail(email);
+                navigate('/');
 
             })
 

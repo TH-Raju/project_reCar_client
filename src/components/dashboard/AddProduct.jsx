@@ -52,7 +52,7 @@ const AddProduct = () => {
                         .then(res => res.json())
                         .then(result => {
                             console.log(result);
-                            toast.success('Product Added') || alert('Product Added')
+                            toast.success('Product Added')
                             navigate('/')
                         })
                 }
