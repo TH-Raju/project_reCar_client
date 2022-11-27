@@ -41,7 +41,7 @@ const AddProduct = () => {
                     // console.log(imgData)
                     //save product 
 
-                    fetch('http://localhost:5000/categoriy', {
+                    fetch('https://resale-handing-server-side.vercel.app/categoriy', {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
@@ -62,7 +62,7 @@ const AddProduct = () => {
     const { data: categories } = useQuery({
         queryKey: ['categoriy'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categoriyProduct');
+            const res = await fetch('https://resale-handing-server-side.vercel.app/categoriyProduct');
             const data = await res.json();
             return data;
         }

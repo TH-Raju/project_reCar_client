@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
             {
                 path: '/categorieDetail/:id',
                 element: <PrivateRoute><CategorieDetail></CategorieDetail></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/categoriy/${params.id}`)
+                loader: ({ params }) => fetch(`https://resale-handing-server-side.vercel.app/categoriy/${params.id}`)
             },
             {
                 path: '/login',
@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://resale-handing-server-side.vercel.app/bookings/${params.id}`)
             },
             {
                 path: '/dashboard/alluser',

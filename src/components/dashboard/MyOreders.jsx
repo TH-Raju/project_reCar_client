@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 
 const MyOreders = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://resale-handing-server-side.vercel.app/bookings?email=${user?.email}`;
     const { data: buyings = [], isLoading, refetch } = useQuery({
         queryKey: ['buyings', user?.email],
         queryFn: async () => {
@@ -27,7 +27,7 @@ const MyOreders = () => {
         const agree = window.confirm(`Are you sure you want to this Item`)
         // console.log(agree);
         if (agree) {
-            fetch(`http://localhost:5000/bookings/${buyings}`, {
+            fetch(`https://resale-handing-server-side.vercel.app/bookings/${buyings}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
