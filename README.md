@@ -4,7 +4,7 @@
 
 ## personal Website
 
-# Live Preview  []  
+# Live Preview  [https://resale-handing.web.app/]  
 ## click on the link to view Live site in your browser.
 
 
