@@ -44,8 +44,6 @@ const CheckoutForm = ({ data }) => {
 
         if (error) {
             setCardError(error)
-            console.log(cardError)
-
         } else {
             setCardError('');
         }
@@ -80,6 +78,7 @@ const CheckoutForm = ({ data }) => {
 
 
             }
+
             //save data in Database
             fetch('https://resale-handing-server-side.vercel.app/payments', {
                 method: 'POST',
@@ -91,7 +90,6 @@ const CheckoutForm = ({ data }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     if (data.insertedId) {
                         setSuccess(`Congrats! your payment complete`);
                         setTransactionId(paymentIntent.id)
@@ -99,8 +97,6 @@ const CheckoutForm = ({ data }) => {
                 })
         }
         setProcessing(false)
-        console.log(paymentIntent);
-
     }
     return (
         <>

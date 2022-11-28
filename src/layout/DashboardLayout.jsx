@@ -24,6 +24,7 @@ const DashboardLayout = () => {
                         {
                             (isSeller || isAdmin) && <>
                                 <li className="hover:bg-slate-300 hover:rounded-sm text-lg font-bold lg:pl-32"><Link to='/dashboard/addproduct'>Add Product</Link></li>
+                                <li className="hover:bg-slate-300 hover:rounded-sm text-lg font-bold lg:pl-32"><Link to='/dashboard/myproduct'>My Product</Link></li>
                             </>
                         }
                         {

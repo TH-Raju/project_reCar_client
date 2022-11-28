@@ -4,7 +4,7 @@ import { AuthContext } from '../components/context/AuthProvider';
 
 const BookModal = ({ categorieDetail }) => {
     const { user } = useContext(AuthContext);
-    const { name, img, mobile, sellerName, location, originalPrice, resalePrice, yearOfUse } = categorieDetail;
+    const { name, img, mobile, sellerName, location, originalPrice, resalePrice, } = categorieDetail;
 
 
     const handleBooing = event => {
@@ -13,7 +13,6 @@ const BookModal = ({ categorieDetail }) => {
         const price = form.price.value;
         const buyerName = form.name.value;
         const buyerEmail = form.email.value;
-
 
 
         const booking = {
@@ -35,9 +34,7 @@ const BookModal = ({ categorieDetail }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.acknowledged) {
-                    // alert("Booking Confirmed");
                     toast.success("Booking Confirmed");
                 }
             })

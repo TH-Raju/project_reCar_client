@@ -21,13 +21,14 @@ const Register = () => {
     }
 
     const handleSignUp = (data) => {
-        console.log(data);
+        // console.log(data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                // const user = result.user;
+                // console.log(user);
                 toast.success('User Created Successfully.')
+                navigate('/');
                 const userInfo = {
                     displayName: data.name
                 }
@@ -39,7 +40,7 @@ const Register = () => {
                     .catch(err => console.log(err));
             })
             .catch(error => {
-                console.log(error)
+                // console.log(error)
                 setSignUPError(error.message)
             });
     }
@@ -48,8 +49,9 @@ const Register = () => {
         googleProviderLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                saveUser(user?.displayName, user?.email)
+                // console.log(user);
+                saveUser(user?.displayName, user?.email);
+                navigate('/');
             })
             .catch(error => console.error(error))
     }
@@ -81,7 +83,7 @@ const Register = () => {
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
-                <h2 className='text-xl text-center'>Sign Up</h2>
+                <h2 className='text-2xl font-bold text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Name</span></label>
@@ -117,7 +119,7 @@ const Register = () => {
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
-                <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
+                <p className='mt-4'>Already have an account <Link className='text-secondary underline' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
                 <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
 

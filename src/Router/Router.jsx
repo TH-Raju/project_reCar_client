@@ -3,6 +3,7 @@ import CategorieDetail from "../CategorieDetail/CategorieDetail";
 import AddProduct from "../components/dashboard/AddProduct";
 import AllUser from "../components/dashboard/AllUser";
 import MyOreders from "../components/dashboard/MyOreders";
+import MyProduct from "../components/dashboard/MyProduct";
 import Payment from "../components/dashboard/Payment";
 import Home from "../components/Home/Home";
 import Login from "../components/Login";
@@ -64,6 +65,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/myproduct',
+                element: <MyProduct></MyProduct>,
+                loader: () => fetch('https://resale-handing-server-side.vercel.app/product')
             },
             {
                 path: '/dashboard/payment/:id',

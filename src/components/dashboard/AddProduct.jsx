@@ -11,11 +11,9 @@ const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleAddProduct = data => {
-        // console.log(data.img[0]);
         const img = data.img[0];
         const formData = new FormData();
         formData.append('image', img);
-        console.log(data);
 
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
         fetch(url, {
@@ -24,12 +22,10 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(imgData => {
-                // console.log(imgData.data.url)
                 if (imgData.success) {
-                    // console.log(imgData.data.url)
-                    // imgData.data.url
                     const product = {
                         name: data.name,
+                        sellerName: data.sellerName,
                         categorie: data.categorie,
                         location: data.location,
                         mobile: data.mobile,
@@ -38,7 +34,7 @@ const AddProduct = () => {
                         yearOfUse: data.yearOfUse,
                         img: imgData.data.url
                     }
-                    // console.log(imgData)
+
                     //save product 
 
                     fetch('https://resale-handing-server-side.vercel.app/categoriy', {
@@ -51,14 +47,27 @@ const AddProduct = () => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result);
                             toast.success('Product Added')
                             navigate('/')
+                        })
+
+                    fetch('https://resale-handing-server-side.vercel.app/product', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
                         })
                 }
 
             })
     }
+
     const { data: categories } = useQuery({
         queryKey: ['categoriy'],
         queryFn: async () => {
@@ -151,7 +160,7 @@ const AddProduct = () => {
 
 
                 <div className=' text-center mt-8 md:col-span-2'>
-                    <input className='btn btn-accent mt-4  md:w-96' value="Add Item" type="submit" />
+                    <input className='btn btn-accent mt-4 font-bold md:w-96' value="Add Item" type="submit" />
                 </div>
             </form>
         </div>

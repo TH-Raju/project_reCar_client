@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../hooks/useToken';
 import { AuthContext } from './context/AuthProvider';
@@ -8,9 +9,10 @@ import { AuthContext } from './context/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn, googleProviderLogin } = useContext(AuthContext);
+    const { signIn, googleProviderLogin, updateUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
+
     const [token] = useToken(loginUserEmail);
     const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
@@ -22,25 +24,50 @@ const Login = () => {
     }
 
     const handleLogin = data => {
-        console.log(data);
         setLoginError('');
         signIn(data.email, data.password, data.role)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                toast.success('User Created Successfully.')
                 setLoginUserEmail(data.email);
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        saveUser(data.name, data.email, data.role);
+
+                    })
             })
             .catch(error => {
-                console.log(error.message)
                 setLoginError(error.message);
             });
     }
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('https://resale-handing-server-side.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setLoginUserEmail(email);
+                navigate('/');
+
+            })
+
+    }
+
+
 
     const handleGoogleSignIn = () => {
         googleProviderLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                saveUser(user?.displayName, user?.email);
+                navigate('/');
             })
             .catch(error => console.error(error))
     }
@@ -48,7 +75,7 @@ const Login = () => {
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
-                <h2 className='text-xl text-center'>Login</h2>
+                <h2 className='text-2xl font-bold text-center'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Email</span></label>
@@ -68,22 +95,13 @@ const Login = () => {
                             })}
                             className="input input-bordered w-full max-w-xs" />
                     </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Role</span></label>
 
-                        <select {...register('role')} className="input input-bordered w-full max-w-xs">
-                            <option value="Buyer">Buyer</option>
-                            <option value="Seller">Seller</option>
-                        </select>
-                        <label className="label"> <span className="label-text">Forget Password?</span></label>
-                        {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
-                    </div>
-                    <input className='btn btn-accent w-full' value="Login" type="submit" />
+                    <input className='btn btn-accent w-full mt-6' value="Login" type="submit" />
                     <div>
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
-                <p className=' mt-4'>New to Resale Handing <Link className='text-secondary underline' to="/register">Create new Account</Link></p>
+                <p className=' mt-4'>New to Resale Handing? <Link className='text-secondary underline' to="/register">Create new Account</Link></p>
                 <div className="divider">OR</div>
                 <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>

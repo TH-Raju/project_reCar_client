@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import Loading from '../Shared/Loading';
@@ -23,9 +23,7 @@ const MyOreders = () => {
     })
 
     const handleDelete = buyings => {
-        console.log(buyings)
         const agree = window.confirm(`Are you sure you want to this Item`)
-        // console.log(agree);
         if (agree) {
             fetch(`https://resale-handing-server-side.vercel.app/bookings/${buyings}`, {
                 method: 'DELETE',

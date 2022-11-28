@@ -7,7 +7,6 @@ const Navbar = () => {
         logOut()
             .then(() => { })
             .catch(err => console.log(err))
-
     }
 
     const menuItems = <React.Fragment>
@@ -25,7 +24,6 @@ const Navbar = () => {
                     <li><Link to="/login"><button className='btn btn-outline btn-sm mt-2 px-2 py-0 rounded-lg'>Log in</button></Link></li>
                     <li><Link to="/register"><button className='btn btn-outline btn-sm mt-2 px-2 py-0 rounded-lg'>Register</button></Link></li>
                 </>
-
         }
 
     </React.Fragment>
