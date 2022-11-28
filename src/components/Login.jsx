@@ -9,7 +9,7 @@ import { AuthContext } from './context/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn, googleProviderLogin, updateUser } = useContext(AuthContext);
+    const { signIn, googleProviderLogin } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
 
@@ -27,46 +27,20 @@ const Login = () => {
         setLoginError('');
         signIn(data.email, data.password, data.role)
             .then(result => {
-                toast.success('User Created Successfully.')
+                toast.success('Log in Successful.')
                 setLoginUserEmail(data.email);
-                const userInfo = {
-                    displayName: data.name
-                }
-                updateUser(userInfo)
-                    .then(() => {
-                        saveUser(data.name, data.email, data.role);
-
-                    })
             })
             .catch(error => {
                 setLoginError(error.message);
             });
     }
-    const saveUser = (name, email, role) => {
-        const user = { name, email, role };
-        fetch('https://resale-handing-server-side.vercel.app/users', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
-                setLoginUserEmail(email);
-                navigate('/');
 
-            })
-
-    }
 
 
 
     const handleGoogleSignIn = () => {
         googleProviderLogin(googleProvider)
             .then(result => {
-                const user = result.user;
-                saveUser(user?.displayName, user?.email);
                 navigate('/');
             })
             .catch(error => console.error(error))
