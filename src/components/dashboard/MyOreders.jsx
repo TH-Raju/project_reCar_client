@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 
 const MyOreders = () => {
     const { user } = useContext(AuthContext);
-    const url = `https://resale-handing-server-side.vercel.app/bookings?email=${user?.email}`;
+    const url = `https://resale-handing-server-side.vercel.app/bookings?email=${user.email}`;
     const { data: buyings = [], isLoading, refetch } = useQuery({
         queryKey: ['buyings', user?.email],
         queryFn: async () => {

@@ -10,25 +10,24 @@ import { AuthContext } from './context/AuthProvider';
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, googleProviderLogin } = useContext(AuthContext);
-    const [createUserEmil, setCreatedUserEmail] = useState('');
-    const [token] = useToken(createUserEmil);
+    const [createUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createUserEmail)
     const [signUpError, setSignUPError] = useState('')
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
 
     if (token) {
+        // console.log(token)
         navigate('/');
     }
 
-    const handleSignUp = (data) => {
-        // console.log(data);
+    const handleSignUp = data => {
+        // console.log(data.email);
         setSignUPError('');
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.role)
             .then(result => {
-                // const user = result.user;
-                // console.log(user);
                 toast.success('User Created Successfully.')
-                navigate('/');
+
                 const userInfo = {
                     displayName: data.name
                 }
@@ -67,8 +66,9 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(data => {
+                // console.log(email)
                 setCreatedUserEmail(email);
-                navigate('/');
+
 
             })
 
