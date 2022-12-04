@@ -24,6 +24,7 @@
 * Node.js
 * Express.js
 * MongoDB
+* Stripe for Payment
 * Firebase Authentication
 * Firebase Hosting
 * Tailwind CSS
