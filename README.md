@@ -37,7 +37,7 @@
 ## Pass - Hero@123
 
 
-## Admin
+## seller
 ## Gmail - tof@gmail.com
 ## Pass - Tof@123
 
