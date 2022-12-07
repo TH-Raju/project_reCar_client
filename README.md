@@ -37,6 +37,11 @@
 ## Pass - Hero@123
 
 
+## Admin
+## Gmail - tof@gmail.com
+## Pass - Tof@123
+
+
 
 
 
