@@ -13,7 +13,7 @@ const CertifySection = () => {
                     </svg>
                     <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl text-black">"Best Resale Marketplace in Online Platform. Proved By Private Company Limited. And Customer Satisfaction."</p>
                     <div className="flex justify-center space-x-3">
-                        <img src={owner} alt="" className="w-20 h-20 bg-center bg-cover rounded-md dark:bg-gray-500 dark:bg-gray-700" />
+                        <img src={owner} alt="" className="w-20 h-20 bg-center bg-cover rounded-md dark:bg-gray-700" />
                         <div>
                             <p className="leading-tight">Leroy Jenkins</p>
                             <p className="text-sm leading-tight text-black">Founder, Company</p>
