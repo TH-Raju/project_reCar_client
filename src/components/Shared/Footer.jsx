@@ -5,7 +5,7 @@ const Footer = () => {
             // style={{
             //     background: `url(${footeri})`
             // }}
-            className='px-8'>
+            className='px-8 mt-14'>
             <footer className="footer lg:w-4/5 lg:mx-auto flex justify-between ">
                 <div>
                     <span className="footer-title">Services</span>

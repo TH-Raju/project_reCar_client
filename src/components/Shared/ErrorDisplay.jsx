@@ -11,8 +11,10 @@ const ErrorDisplay = () => {
             .then(() => {
                 navigate('/login');
             })
-            .catch(err => console.log(err))
-
+            .catch(err => {
+                window.location.reload();
+                console.log(err)
+            })
     }
     return (
         <div>
