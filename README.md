@@ -24,6 +24,7 @@
 * Node.js
 * Express.js
 * MongoDB
+* Stripe for Payment
 * Firebase Authentication
 * Firebase Hosting
 * Tailwind CSS
@@ -31,8 +32,14 @@
 * Vercel
 
 
+## Admin
+## Gmail - hero@gmail.com
+## Pass - Hero@123
 
 
+## seller
+## Gmail - tof@gmail.com
+## Pass - Tof@123
 
 
 
