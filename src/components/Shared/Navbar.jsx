@@ -39,7 +39,10 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl font-bold">Resale Handing</Link>
+                    <div className='flex items-center'>
+                        <img src={require("../../img/resale.png")} className="h-6 w-6 -mr-3" alt="" />
+                        <Link to='/home' className="btn btn-ghost normal-case text-xl font-bold">Resale Handing</Link>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
