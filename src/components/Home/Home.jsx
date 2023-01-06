@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Categories from './Categories';
 import CertifySection from './CertifySection';
+import Choose from './Choose';
 import Contact from './Contact';
 import InfoSection from './InfoSection';
 import Review from './Review';
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <Categories></Categories>
             <InfoSection></InfoSection>
+            <Choose></Choose>
             <CertifySection></CertifySection>
             <States></States>
             <Review></Review>
