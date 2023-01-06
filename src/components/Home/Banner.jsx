@@ -13,7 +13,7 @@ const Banner = () => {
                     Sell and Buy
                 </h1>
                 <p className='md:text-2xl text-xl font-bold text-gray-500'>Sell and Buy Your Product from online. Sell Your Used Product. and Buy Other Used Product Choose Best Product from online. </p>
-                <Link to='/products'> <button className='bg-cyan-700 w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-white'>Get Started</button></Link>
+                <Link to='/products'> <button className=' w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-white bg-primary'>Get Started</button></Link>
 
             </div>
         </div>

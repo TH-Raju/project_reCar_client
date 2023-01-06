@@ -32,7 +32,7 @@ const InfoSection = () => {
                     </div>
                 </div>
                 <div className="card card-side bg-base-100 shadow-xl">
-                    <figure><img src={sell} className='h-16 w-72 lg:w-36 lg:h-20 -mt-28' alt="sell" /></figure>
+                    <figure><img src={sell} className='h-16 w-72 lg:w-48 lg:h-20 -mt-28' alt="sell" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Sell</h2>
                         <p>Check out our free, secure methods for selling your car. You can either sell directly to a private-party shopper or get an Instant Offer from a dealership. Choose the option that’s right for you!</p>
