@@ -11,6 +11,7 @@ import Register from "../components/Register";
 import Blog from "../components/Shared/Blog";
 import ErrorDisplay from "../components/Shared/ErrorDisplay";
 import ErrorPage from "../components/Shared/ErrorPage";
+import Faq from "../components/Shared/Faq";
 import Products from "../components/Shared/Products";
 import DashboardLayout from "../layout/DashboardLayout";
 import Main from "../layout/Main";
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/faq',
+                element: <Faq></Faq>
             },
             {
                 path: '/products',
