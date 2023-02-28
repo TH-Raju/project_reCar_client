@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const InfoSection = () => {
     return (
         <div className='lg:w-4/5 lg:mx-auto my-64'>
-            <h2 className='text-center text-3xl font-bold'>About Resale Handing</h2>
+            <h2 className='text-center text-3xl font-bold'>About ReCar</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:mx-12 my-16'>
                 <div className="card card-side bg-base-100 shadow-xl">
                     <figure><img src={shop} className='h-16 w-80 lg:w-36 lg:h-20 -mt-28' alt="shop" /></figure>
