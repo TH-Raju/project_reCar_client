@@ -1,6 +1,8 @@
 import React from 'react';
+import CountUp from 'react-countup';
 
 const States = () => {
+
     return (
         <div className='my-12 mb-48'>
             <h2 className="text-4xl text-center font-bold my-4 mb-8">Stats</h2>
@@ -15,7 +17,7 @@ const States = () => {
                             </svg>
                         </div>
                         <div className="flex flex-col justify-center align-middle">
-                            <p className="text-3xl font-semibold leading-none">200</p>
+                            <p className="text-3xl font-semibold leading-none"><CountUp end={200} duration={5} />+</p>
                             <p className="capitalize">Orders</p>
                         </div>
                     </div>
@@ -29,7 +31,7 @@ const States = () => {
                             </svg>
                         </div>
                         <div className="flex flex-col justify-center align-middle">
-                            <p className="text-3xl font-semibold leading-none">7500</p>
+                            <p className="text-3xl font-semibold leading-none"><CountUp end={7500} duration={7} />+</p>
                             <p className="capitalize">New customers</p>
                         </div>
                     </div>
@@ -45,7 +47,7 @@ const States = () => {
                             </svg>
                         </div>
                         <div className="flex flex-col justify-center align-middle">
-                            <p className="text-3xl font-semibold leading-none">172%</p>
+                            <p className="text-3xl font-semibold leading-none"><CountUp end={172} duration={4} />%</p>
                             <p className="capitalize">Growth</p>
                         </div>
                     </div>
@@ -56,7 +58,7 @@ const States = () => {
                             </svg>
                         </div>
                         <div className="flex flex-col justify-center align-middle">
-                            <p className="text-3xl font-semibold leading-none">17%</p>
+                            <p className="text-3xl font-semibold leading-none"><CountUp end={17} duration={2} />%</p>
                             <p className="capitalize">Bounce rate</p>
                         </div>
                     </div>
