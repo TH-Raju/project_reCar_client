@@ -5,6 +5,7 @@ import CertifySection from './CertifySection';
 import Choose from './Choose';
 import Contact from './Contact';
 import InfoSection from './InfoSection';
+import Offer from './Offer';
 import Review from './Review';
 import States from './States';
 
@@ -17,6 +18,7 @@ const Home = () => {
             <Choose></Choose>
             <CertifySection></CertifySection>
             <States></States>
+            <Offer></Offer>
             <Review></Review>
             <Contact></Contact>
         </div>
