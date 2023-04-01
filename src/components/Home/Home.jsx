@@ -18,7 +18,6 @@ const Home = () => {
             <InfoSection></InfoSection>
             <Gallery></Gallery>
             <Choose></Choose>
-
             <CertifySection></CertifySection>
             <States></States>
             <Offer></Offer>

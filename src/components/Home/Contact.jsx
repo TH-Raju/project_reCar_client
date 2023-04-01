@@ -34,17 +34,17 @@ const Contact = () => {
                     </div>
                     <img src={require("../../img/contact.gif")} alt="" className="p-6 will-change-auto h-auto" />
                 </div>
-                <form novalidate="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form noValidate="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div>
-                        <label for="name" className="text-sm">Full name</label>
+                        <label htmlFor="name" className="text-sm">Full name</label>
                         <input id="name" type="text" placeholder="" className="w-full p-3 rounded border border-black" />
                     </div>
                     <div>
-                        <label for="email" className="text-sm">Email</label>
+                        <label htmlFor="email" className="text-sm">Email</label>
                         <input id="email" type="email" className="w-full p-3 rounded border border-black" />
                     </div>
                     <div>
-                        <label for="message" className="text-sm">Message</label>
+                        <label htmlFor="message" className="text-sm">Message</label>
                         <textarea id="message" rows="3" className="w-full p-3 rounded border border-black"></textarea>
                     </div>
                     <button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded btn btn-primary text-white">Send Message</button>
