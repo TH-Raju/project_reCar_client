@@ -17,7 +17,7 @@ const States = () => {
                             </svg>
                         </div>
                         <div className="flex flex-col justify-center align-middle">
-                            <p className="text-3xl font-semibold leading-none"><CountUp end={200} duration={5} />+</p>
+                            <p className="text-3xl font-semibold leading-none" ><CountUp end={200} duration={5} />+</p>
                             <p className="capitalize">Orders</p>
                         </div>
                     </div>

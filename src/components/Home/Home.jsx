@@ -11,6 +11,7 @@ import Review from './Review';
 import States from './States';
 
 const Home = () => {
+
     return (
         <div>
             <Banner></Banner>
