@@ -9,6 +9,7 @@ import InfoSection from './InfoSection';
 import Offer from './Offer';
 import Review from './Review';
 import States from './States';
+import LatestCar from './LatestCar';
 
 const Home = () => {
 
@@ -22,6 +23,7 @@ const Home = () => {
             <CertifySection></CertifySection>
             <States></States>
             <Offer></Offer>
+            <LatestCar></LatestCar>
             <Review></Review>
             <Contact></Contact>
         </div>
