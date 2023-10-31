@@ -42,7 +42,7 @@ const AddProduct = () => {
           //save product
 
           fetch(
-            "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/categoriy",
+            "https://resale-handing-server-side-770erufms-th-raju.vercel.app/categoriy",
             {
               method: "PUT",
               headers: {
@@ -59,7 +59,7 @@ const AddProduct = () => {
             });
 
           fetch(
-            "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/product",
+            "https://resale-handing-server-side-770erufms-th-raju.vercel.app/product",
             {
               method: "POST",
               headers: {
@@ -81,7 +81,7 @@ const AddProduct = () => {
     queryKey: ["categoriy"],
     queryFn: async () => {
       const res = await fetch(
-        "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/categoriyProduct"
+        "https://resale-handing-server-side-770erufms-th-raju.vercel.app/categoriyProduct"
       );
       const data = await res.json();
       return data;

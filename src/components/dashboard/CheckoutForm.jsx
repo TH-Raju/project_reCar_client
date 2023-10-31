@@ -13,7 +13,7 @@ const CheckoutForm = ({ data }) => {
 
   useEffect(() => {
     fetch(
-      "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/create-payment-intent",
+      "https://resale-handing-server-side-770erufms-th-raju.vercel.app/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -77,7 +77,7 @@ const CheckoutForm = ({ data }) => {
 
       //save data in Database
       fetch(
-        "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/payments",
+        "https://resale-handing-server-side-770erufms-th-raju.vercel.app/payments",
         {
           method: "POST",
           headers: {

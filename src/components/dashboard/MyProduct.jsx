@@ -8,7 +8,7 @@ const MyProduct = () => {
     queryKey: ["product"],
     queryFn: async () => {
       const res = await fetch(
-        "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/product"
+        "https://resale-handing-server-side-770erufms-th-raju.vercel.app/product"
       );
       const data = await res.json();
       return data;
@@ -19,7 +19,7 @@ const MyProduct = () => {
     const agree = window.confirm(`Are you sure you want to this Item`);
     if (agree) {
       fetch(
-        `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/product/${product}`,
+        `https://resale-handing-server-side-770erufms-th-raju.vercel.app/product/${product}`,
         {
           method: "DELETE",
         }

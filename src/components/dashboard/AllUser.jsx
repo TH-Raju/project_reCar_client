@@ -15,7 +15,7 @@ const AllUser = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(
-        "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/users"
+        "https://resale-handing-server-side-770erufms-th-raju.vercel.app/users"
       );
       const data = await res.json();
       const filteredData = data?.filter((user) => user.role !== "super_admin");
@@ -24,7 +24,7 @@ const AllUser = () => {
   });
   const handleDeleteUser = (user) => {
     fetch(
-      `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/users/${user._id}`,
+      `https://resale-handing-server-side-770erufms-th-raju.vercel.app/users/${user._id}`,
       {
         method: "DELETE",
         headers: {
@@ -43,7 +43,7 @@ const AllUser = () => {
 
   const handleMakeAdmin = (id) => {
     fetch(
-      `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/users/admin/${id}`,
+      `https://resale-handing-server-side-770erufms-th-raju.vercel.app/users/admin/${id}`,
       {
         method: "PUT",
         headers: {
