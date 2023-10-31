@@ -69,13 +69,16 @@ const Register = () => {
   const saveUser = (name, email, role) => {
     const user = { name, email, role };
     // console.log(user);
-    fetch("https://resale-handing-server-side.vercel.app/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
+    fetch(
+      "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/users",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(email)

@@ -25,7 +25,7 @@ const BookModal = ({ categorieDetail }) => {
             userNum: mobile,
         }
 
-        fetch('https://resale-handing-server-side.vercel.app/bookings', {
+        fetch('https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

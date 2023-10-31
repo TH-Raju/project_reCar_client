@@ -15,22 +15,23 @@ const AllUser = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(
-        "https://resale-handing-server-side.vercel.app/users"
+        "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/users"
       );
       const data = await res.json();
-      const filteredData = data?.filter(
-        (user) => user.role !== "super_admin"
-      );
+      const filteredData = data?.filter((user) => user.role !== "super_admin");
       return filteredData;
     },
   });
   const handleDeleteUser = (user) => {
-    fetch(`https://resale-handing-server-side.vercel.app/users/${user._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/users/${user._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -41,12 +42,15 @@ const AllUser = () => {
   };
 
   const handleMakeAdmin = (id) => {
-    fetch(`https://resale-handing-server-side.vercel.app/users/admin/${id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/users/admin/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://resale-handing-server-side.vercel.app/categoriy/${params.id}`
+            `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/categoriy/${params.id}`
           ),
       },
       {
@@ -91,14 +91,16 @@ export const router = createBrowserRouter([
         path: "/dashboard/myproduct",
         element: <MyProduct></MyProduct>,
         loader: () =>
-          fetch("https://resale-handing-server-side.vercel.app/product"),
+          fetch(
+            "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/product"
+          ),
       },
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(
-            `https://resale-handing-server-side.vercel.app/bookings/${params.id}`
+            `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/bookings/${params.id}`
           ),
       },
       {

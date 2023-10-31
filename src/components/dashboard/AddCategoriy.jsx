@@ -35,14 +35,17 @@ const AddCategoriy = () => {
 
           //save categoriy
 
-          fetch("http://localhost:5000/categoriy", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(categoriy),
-          })
+          fetch(
+            "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/categoriy",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(categoriy),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               toast.success("Categoriy Added");

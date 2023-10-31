@@ -6,7 +6,7 @@ import Loading from "../Shared/Loading";
 
 const MyOreders = () => {
   const { user } = useContext(AuthContext);
-  const url = `https://resale-handing-server-side.vercel.app/bookings?email=${user.email}`;
+  const url = `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/bookings?email=${user.email}`;
   const {
     data: buyings = [],
     isLoading,
@@ -28,7 +28,7 @@ const MyOreders = () => {
     const agree = window.confirm(`Are you sure you want to this Item`);
     if (agree) {
       fetch(
-        `https://resale-handing-server-side.vercel.app/bookings/${buyings}`,
+        `https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/bookings/${buyings}`,
         {
           method: "DELETE",
         }

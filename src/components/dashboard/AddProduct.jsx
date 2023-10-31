@@ -41,28 +41,34 @@ const AddProduct = () => {
 
           //save product
 
-          fetch("https://resale-handing-server-side.vercel.app/categoriy", {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(product),
-          })
+          fetch(
+            "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/categoriy",
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(product),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               toast.success("Product Added");
               navigate("/");
             });
 
-          fetch("https://resale-handing-server-side.vercel.app/product", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(product),
-          })
+          fetch(
+            "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/product",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(product),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               console.log(result);
@@ -75,7 +81,7 @@ const AddProduct = () => {
     queryKey: ["categoriy"],
     queryFn: async () => {
       const res = await fetch(
-        "https://resale-handing-server-side.vercel.app/categoriyProduct"
+        "https://resale-handing-server-side-iqwsws1lx-th-raju.vercel.app/categoriyProduct"
       );
       const data = await res.json();
       return data;
@@ -83,11 +89,11 @@ const AddProduct = () => {
   });
 
   return (
-    <div className="w-5/6 mx-auto p-7">
-      <h2 className="text-5xl font-bold mb-10">Add Product</h2>
+    <div className="w-5/6 mx-auto pt-3">
+      <h2 className="text-4xl font-bold mb-7">Add Product</h2>
       <form
         onSubmit={handleSubmit(handleAddProduct)}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 "
       >
         <div className="form-control w-full max-w-xs">
           <label className="label">
@@ -245,12 +251,12 @@ const AddProduct = () => {
             {...register("img", {
               required: "Image is Required",
             })}
-            className="input w-full max-w-xs"
+            className="input w-full max-w-xs border border-black pt-2"
           />
           {errors.img && <p className="text-red-500">{errors.img.message}</p>}
         </div>
 
-        <div className=" text-center mt-8 md:col-span-2">
+        <div className=" text-center mt-4 md:col-span-2">
           <input
             className="btn btn-accent mt-4 font-bold md:w-96"
             value="Add Item"
