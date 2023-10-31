@@ -46,16 +46,18 @@ const AddCategoriy = () => {
             .then((res) => res.json())
             .then((result) => {
               toast.success("Categoriy Added");
-              console.log(result);
-              //   navigate("/products");
+              //   console.log(result);
+              navigate("/products");
             });
         }
       });
   };
 
   return (
-    <div className="md:w-5/6 mx-auto p-7">
-      <h2 className="text-5xl font-bold mb-10">Add New Categoriy</h2>
+    <div className="w-5/6 mx-auto p-7">
+      <h2 className="text-3xl md:text-5xl font-bold mb-10">
+        Add New Categoriy
+      </h2>
       <form
         onSubmit={handleSubmit(handleAddCategoriy)}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"

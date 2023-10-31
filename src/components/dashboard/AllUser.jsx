@@ -18,7 +18,10 @@ const AllUser = () => {
         "https://resale-handing-server-side.vercel.app/users"
       );
       const data = await res.json();
-      return data;
+      const filteredData = data?.filter(
+        (user) => user.role !== "super_admin"
+      );
+      return filteredData;
     },
   });
   const handleDeleteUser = (user) => {
@@ -75,7 +78,7 @@ const AllUser = () => {
   };
 
   return (
-    <div>
+    <div className="mb-14">
       <h2 className="text-4xl text-center font-bold my-5">All User</h2>
       <div className="flex justify-end gap-4 mb-2 mr-3 items-center">
         {start > 1 && (
@@ -113,7 +116,7 @@ const AllUser = () => {
                   {user?.role !== "Admin" && (
                     <button
                       onClick={() => handleMakeAdmin(user._id)}
-                      className="btn btn-primary"
+                      className="btn btn-primary md:btn-md btn-sm"
                     >
                       Make Admin
                     </button>
@@ -123,7 +126,7 @@ const AllUser = () => {
                   <label
                     onClick={() => setDeleteUser(user)}
                     htmlFor="confirmation-modal"
-                    className="btn btn-warning"
+                    className="btn btn-warning md:btn-md btn-sm"
                   >
                     Delete
                   </label>
