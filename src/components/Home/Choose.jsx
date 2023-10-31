@@ -2,7 +2,7 @@ import React from 'react';
 
 const Choose = () => {
     return (
-        <div className='mb-36 md:w-5/6 mx-auto'>
+        <div className='mb-36 lg:w-4/5 mx-auto my-16'>
             <h2 className="text-5xl text-center font-bold my-4 mb-16">Why choose us?</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-10 bg-gray-300 p-10 rounded-xl'>
                 <div className="card  bg-base-100 shadow-xl">

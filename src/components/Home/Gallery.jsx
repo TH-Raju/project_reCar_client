@@ -4,7 +4,7 @@ import car from '../../img/g.jpg';
 
 const Gallery = () => {
     return (
-        <div className="hero bg-fixed my-20 py-24" style={{ backgroundImage: `url(${car})` }}>
+        <div className="hero bg-fixed my-20 py-24 lg:w-4/5 lg:mx-auto " style={{ backgroundImage: `url(${car})` }}>
             <div className=" bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md lg:py-24">

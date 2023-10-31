@@ -6,7 +6,7 @@ const Review = () => {
 
 
     return (
-        <div className='mb-60 '>
+        <div className='mb-60 lg:w-4/5 lg:mx-auto my-16'>
             <h2 className="text-4xl text-center font-bold my-4 mb-16">Client's Review</h2>
             <AwesomeSlider className='h-80'>
 

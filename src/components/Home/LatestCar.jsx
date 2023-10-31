@@ -8,7 +8,7 @@ const LatestCar = () => {
     let year = d.getFullYear()
     let month = months[d.getMonth()]
     return (
-        <div className='my-40'>
+        <div className='lg:w-4/5 lg:mx-auto my-16'>
             <div className='my-20'>
                 <h1 className='text-5xl font-bold text-center'>Latest Car Advice</h1>
                 <p className='text-center text-2xl my-4'>Here are some of the featured cars in different categories</p>

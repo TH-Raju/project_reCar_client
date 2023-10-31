@@ -8,7 +8,7 @@ const Footer = () => {
             // style={{
             //     background: `url(${footeri})`
             // }}
-            className='px-8 mt-14'>
+            className='px-8 mt-14 lg:w-4/5 lg:mx-auto my-16'>
             <footer className="footer lg:w-4/5 lg:mx-auto flex justify-between ">
                 <div>
                     <span className="footer-title">Services</span>
