@@ -39,7 +39,7 @@ const Register = () => {
     createUser(data.email, data.password, data.role)
       .then((result) => {
         toast.success("User Created Successfully.");
-
+        navigate("/");
         const userInfo = {
           displayName: data.name,
         };

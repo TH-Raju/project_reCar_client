@@ -32,6 +32,7 @@ const Login = () => {
     signIn(data.email, data.password, data.role)
       .then((result) => {
         toast.success("Log in Successful.");
+        navigate("/");
         setLoginUserEmail(data.email);
       })
       .catch((error) => {
